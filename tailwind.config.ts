@@ -15,7 +15,7 @@ const config: Config = {
         secondary: '#f1c232',
         tertiary: {
           dark: '#16151D',
-          light: '#fff2cc',
+          light: '#F2F3F4',
         },
         quaternary: '#222222',
       },

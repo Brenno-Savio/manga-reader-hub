@@ -1,6 +1,5 @@
 
 
-import ThemeButton from "@/components/ThemeButton/ThemeButton";
 
 const Home = async () => {
   return (
@@ -9,7 +8,6 @@ const Home = async () => {
       {/* <Popular/> */}
       {/* <Atualizations/> */}
       {/* <MostRead/> */}
-      <ThemeButton />
     </>
   );
 };

@@ -60,8 +60,16 @@ const Footer = () => {
           </Link>
         ))}
       </div>
-      <div className='dark:bg-quaternary bg-gray-300 justify-center text-center items-center'>
-        <p className='text-xs px-80 p-9 items-center text-tertiary-light'>Direitos autorais e marcas para mangás, e outros materiais promocionais são mantidos por seus respectivos proprietários e a sua utilização é permitida nos termos da cláusula de uso justo da Lei de Direitos Autorais Americana. (Copyrights and trademarks for the manga, and other promotional materials are held by their respective owners and their use is allowed under the fair use clause of the U.S. Copyright Law.)</p>
+      <div className="dark:bg-quaternary items-center justify-center bg-gray-300 text-center">
+        <p className="text-tertiary-dark dark:text-tertiary-light items-center p-9 px-80 text-xs">
+          Direitos autorais e marcas para mangás, e outros materiais
+          promocionais são mantidos por seus respectivos proprietários e a sua
+          utilização é permitida nos termos da cláusula de uso justo da Lei de
+          Direitos Autorais Americana. (Copyrights and trademarks for the manga,
+          and other promotional materials are held by their respective owners
+          and their use is allowed under the fair use clause of the U.S.
+          Copyright Law.)
+        </p>
       </div>
     </footer>
   );

@@ -1,16 +1,17 @@
 'use client';
 
+import { useSession } from 'next-auth/react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { AiFillFire } from 'react-icons/ai';
-import { FaBookOpen } from 'react-icons/fa';
+import { FaBookOpen, FaUserCircle } from 'react-icons/fa';
 import { MdNewReleases } from 'react-icons/md';
 
 const Header = () => {
-  //   const { data: session } = useSession();
+  const { data: session } = useSession();
 
   return (
-    <header className="bg-primary fixed mx-auto flex w-full flex-wrap py-6 md:flex-nowrap">
+    <header className="fixed mx-auto flex w-full flex-wrap justify-between bg-primary py-6 md:flex-nowrap">
       <div className="flex">
         <div className="flex items-center justify-center">
           <Image
@@ -40,11 +41,11 @@ const Header = () => {
           </li>
         </ul>
       </div>
-      <ul>
+      <ul className="ml-5 flex items-center px-16">
         {/* <SearchBar/> */}
-        {/* <li>
+        <li className="flex items-center">
           {session?.user ? (
-            <Link href={'/'}>
+            <Link href={`/users/${session.user.id}`}>
               {session.user.image ? (
                 <div className="h-10 w-10 overflow-hidden rounded-full">
                   <Image
@@ -56,15 +57,15 @@ const Header = () => {
                   />
                 </div>
               ) : (
-                <FaUserCircle className="cursor-pointer" />
+                <FaUserCircle className="h-10 w-10 cursor-pointer" />
               )}
             </Link>
           ) : (
-            <Link href={'/'}>
-              <FaUserCircle className="cursor-pointer" />
+            <Link href={'/auth'}>
+              <FaUserCircle className="h-10 w-10 cursor-pointer" />
             </Link>
           )}
-        </li> */}
+        </li>
       </ul>
     </header>
   );
