@@ -9,7 +9,7 @@ const ThemeButton = () => {
 
   return (
     <button
-      className="items-center justify-center rounded-full bg-quaternary p-3 align-middle text-4xl text-white dark:bg-white dark:text-quaternary"
+      className="z-10 items-center justify-center rounded-full bg-quaternary p-3 align-middle text-4xl text-white dark:bg-white dark:text-quaternary"
       onClick={() => (darkTheme ? setDarkTheme(false) : setDarkTheme(true))}
     >
       {darkTheme ? <MdOutlineLightMode /> : <MdDarkMode />}

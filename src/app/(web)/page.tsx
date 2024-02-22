@@ -1,7 +1,6 @@
 
-
-
 const Home = async () => {
+
   return (
     <>
       {/* <Modal/> */}

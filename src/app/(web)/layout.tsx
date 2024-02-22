@@ -29,7 +29,7 @@ export default function RootLayout({
               <Header />
               <div className="justify-end py-32 min-[280px]:py-48 min-[768px]:py-36">
                 {children}
-                <div className='flex justify-end absolute items-end  z-20 right-1 p-10'>
+                <div className='flex justify-end absolute items-end  z-10 right-1 p-10'>
                 <ThemeButton />
                 </div>
               </div>

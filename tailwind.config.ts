@@ -13,6 +13,7 @@ const config: Config = {
       colors: {
         primary: '#9750da',
         secondary: '#f1c232',
+        'secondary-alt': '#23afa4',
         tertiary: {
           dark: '#16151D',
           light: '#F2F3F4',
