@@ -42,21 +42,21 @@ const UserModal: FC<Props> = ({ isOpen, setToggleModal }) => {
       </div>
       <ul className="px-5 pt-10">
         <Link
-          href={`/users/${session?.user.id}?option=reading-list`}
+          href={`/users/${session?.user.id}/reading-list`}
           className="flex items-center justify-end py-2"
           onClick={setToggleModal}
         >
           <p className="px-2">Reading list</p> <TbBookFilled />
         </Link>
         <Link
-          href={`/users/${session?.user.id}?option=upload-novel`}
+          href={`/users/${session?.user.id}/upload-novel`}
           className="flex items-center justify-end py-2"
           onClick={setToggleModal}
         >
           <p className="px-2">Upload Novel</p> <BiSolidCloudUpload />
         </Link>
         <Link
-          href={`/users/${session?.user.id}?option=settings`}
+          href={`/users/${session?.user.id}/settings`}
           className="flex items-center justify-end py-2"
           onClick={setToggleModal}
         >

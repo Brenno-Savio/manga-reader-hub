@@ -51,7 +51,7 @@ const novel = {
         },
       ],
       validation: (Rule) =>
-        Rule.required().min(3).error('Minimum of 3 images required'),
+        Rule.required().min(1).error('Minimum of 1 image is required'),
     }),
     defineField({
       name: 'coverImage',

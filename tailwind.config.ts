@@ -11,14 +11,16 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        primary: '#9750da',
-        secondary: '#f1c232',
-        'secondary-alt': '#23afa4',
+        primary: '#9750DA',
+        secondary: '#F1C232',
+        'secondary-alt': '#23AfA4',
         tertiary: {
           dark: '#16151D',
           light: '#F2F3F4',
         },
         quaternary: '#222222',
+        succesful: '#28A745',
+        error: '#93050E',
       },
       fontFamily: {
         poppins: ['var(--font-poppins)', ...fontFamily.sans],

@@ -13,3 +13,11 @@
 .scale-animation {
   @apply transition-all duration-700 hover:scale-125;
 }
+
+.input {
+  @apply focus:shadow-md mb-3 block w-[66%] rounded-lg border border-gray-300 p-2.5 text-black focus:border-secondary focus:outline-none dark:bg-tertiary-dark dark:text-tertiary-light dark:focus:border-secondary-alt sm:text-sm;
+}
+
+.button {
+  @apply  rounded-xl px-8 py-4;
+}

@@ -1,4 +1,6 @@
-const novelCategories = [
+import { Option } from "@/models/Option";
+
+const novelCategories: Option[] = [
   { title: 'Action', value: 'action' },
   { title: 'Adult', value: 'adult' },
   { title: 'Adventure', value: 'adventure' },
