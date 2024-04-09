@@ -1,5 +1,5 @@
 import { Option } from '@/models/Option';
-import { FC } from 'react';
+import { FC, SetStateAction, useEffect, useRef } from 'react';
 import { IoClose } from 'react-icons/io5';
 
 type Props = {
@@ -9,6 +9,7 @@ type Props = {
   toggleDropdown: () => void;
   handleSelectOption: (value: string) => void;
   handleRemoveOption: (value: string) => void;
+  setIsOpen: (value: SetStateAction<boolean>) => void;
 };
 
 const SelectInput: FC<Props> = ({
@@ -18,12 +19,34 @@ const SelectInput: FC<Props> = ({
   toggleDropdown,
   handleSelectOption,
   handleRemoveOption,
+  setIsOpen,
 }) => {
+  const dropdownRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const handleClickOutside = (e: MouseEvent) => {
+      if (
+        dropdownRef.current &&
+        !dropdownRef.current.contains(e.target as Node)
+      ) {
+        setIsOpen(false);
+      }
+    };
+    document.addEventListener('click', handleClickOutside);
+
+    return () => {
+      document.removeEventListener('click', handleClickOutside);
+    };
+  }, []);
+
   return (
     <div className="w-full">
       <ul className="flex w-full flex-col items-center justify-center">
-        <div className="m-5 inline-block w-[66%] flex-wrap justify-between rounded-lg border border-gray-300 bg-white py-2 focus:shadow-md focus:outline-none dark:bg-tertiary-dark dark:text-tertiary-light  sm:text-sm">
-          <div className='w-full flex flex-wrap'>
+        <div
+          ref={dropdownRef}
+          className="m-5 inline-block w-[66%] flex-wrap justify-between rounded-lg border border-gray-300 bg-white py-2 focus:shadow-md focus:outline-none dark:bg-tertiary-dark dark:text-tertiary-light  sm:text-sm"
+        >
+          <div className="flex w-full flex-wrap">
             {selectedOptions.length > 0 &&
               selectedOptions.map((value) => (
                 <div className="m-1 flex w-fit justify-between border border-gray-300 bg-gray-300 p-1 text-xs dark:text-black">

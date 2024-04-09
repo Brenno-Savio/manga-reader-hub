@@ -126,6 +126,12 @@ const novel = {
       validation: (Rule) => Rule.required(),
     }),
     defineField({
+      name: 'updatedDate',
+      title: 'Updated Date',
+      type: 'date',
+      validation: (Rule) => Rule.required(),
+    }),
+    defineField({
       name: 'reviews',
       title: 'Reviews',
       type: 'array',

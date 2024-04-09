@@ -3,6 +3,7 @@ import slug from 'slug';
 
 import { checkNovelExists, createNovel } from '@/libs/apis';
 import { authOptions } from '@/libs/auth';
+import { NovelFormData } from '@/models/NovelFormData';
 import { getServerSession } from 'next-auth';
 
 export async function POST(req: Request, res: Response) {
@@ -16,12 +17,13 @@ export async function POST(req: Request, res: Response) {
     title,
     description,
     author,
-    image,
+    images,
     categories,
-    novelType,
+    type,
     language,
     chapters,
-    date,
+    publishedDate,
+    updatedDate,
   } = await req.json();
 
   const slugged = slug(title.tolowerCase());  
@@ -31,9 +33,10 @@ export async function POST(req: Request, res: Response) {
     !description ||
     !author ||
     !categories ||
-    !novelType ||
+    !type ||
     !language ||
-    !date
+    !publishedDate ||
+    !updatedDate
   ) {
     return new NextResponse('All fields are required', { status: 500 });
   }  
@@ -43,19 +46,23 @@ export async function POST(req: Request, res: Response) {
     return new NextResponse('Novel already exists', { status: 409 });
   }
 
+  const newNovel: NovelFormData = {
+    title,
+    slug: slugged,
+    description,
+    author,
+    images,
+    coverImage: images[0],
+    categories,
+    type,
+    language,
+    chapters,
+    publishedDate,
+    updatedDate,
+  }
+
   try {
-    const data = await createNovel({
-      title,
-      slug: slugged,
-      description,
-      author,
-      image,
-      categories,
-      novelType,
-      language,
-      chapters,
-      date,
-    });
+    const data = await createNovel(newNovel);
 
     return NextResponse.json(data, {
       status: 200,

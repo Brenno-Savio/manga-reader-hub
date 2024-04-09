@@ -8,11 +8,12 @@ export type DefaultNovelForm = {
   title: string,
   description: string,
   author: string,
-  images: (string | File)[];
+  images: File[];
   categories: string[],
   type: string,
   language: string,
   publishedDate: number,
+  updatedDate: number,
 }
 
 export type NovelFormData = {
@@ -20,11 +21,12 @@ export type NovelFormData = {
   slug: string;
   description: string;
   author: string;
-  images: (string | File)[];
+  images: File[];
   coverImage: string | File;
   categories: string[];
   type: string;
   language: string;
   chapters: (Chapter | null)[];
   publishedDate: number;
+  updatedDate: number;
 };
